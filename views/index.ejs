@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>Unit 2 Assessment</title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>Todos List</h1>
+    <h3><%= title %></h3>
+    <ul>
+    <% if(todos.length > 0){ %>
+        <% for(var i=0; i < todos.length; i++) { %>
+          <li><%= todos[i].todos %></li>
+        <% } %>
+    <% } else{ %>  
+      <li>there are no todos</li>
+    <% } %>
+  </ul>
+  <hr>
+  <form action="/todos" method="POST">
+    <input type="text" name="todo" required>
+    <input type="submit" value="Add Todo">
+  </form>
   </body>
 </html>
